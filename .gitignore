@@ -5,3 +5,7 @@
 /.classpath
 /.settings/
 build/**/*
+.gitignore
+.idea/*
+*.iml
+.gradle/*
