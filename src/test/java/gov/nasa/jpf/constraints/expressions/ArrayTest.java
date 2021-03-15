@@ -23,6 +23,7 @@ import java.net.URISyntaxException;
 import java.util.*;
 
 import static gov.nasa.jpf.constraints.api.ConstraintSolver.Result.SAT;
+import static gov.nasa.jpf.constraints.api.ConstraintSolver.Result.UNSAT;
 import static org.testng.Assert.assertEquals;
 
 @Test
@@ -91,8 +92,8 @@ public class ArrayTest {
         Properties conf = new Properties();
         conf.setProperty("model", "true");
         conf.setProperty("symbolic.dp", "NativeZ3");
-        ConstraintSolverFactory factory = new ConstraintSolverFactory(conf);
-        ConstraintSolver solver = factory.createSolver();
+        ConstraintSolverFactory factory = new ConstraintSolverFactory();
+        ConstraintSolver solver = factory.createSolver(conf);
 
         SolverContext ctx = solver.createContext();
 
@@ -142,6 +143,6 @@ public class ArrayTest {
         final NativeZ3Solver solver = new NativeZ3Solver();
         final Valuation val = new Valuation();
         final ConstraintSolver.Result res = solver.solve(problem.getAllAssertionsAsConjunction(), val);
-        assertEquals(res, SAT);
+        assertEquals(res, UNSAT);
     }
 }
