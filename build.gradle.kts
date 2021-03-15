@@ -49,6 +49,7 @@ dependencies {
     //implementation("com.github.tudo-aqua:jconstraints:b057fe7")
 
     testImplementation("org.testng:testng:7.0.0")
+    testImplementation("org.apache.commons:commons-math3:3.6.1")
 }
 
 java {
